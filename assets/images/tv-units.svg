@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <rect width="100%" height="100%" fill="#f7fbff"/>
+  <g transform="translate(80,80)">
+    <rect x="0" y="0" width="640" height="360" rx="12" fill="#fff" stroke="#eef6fb"/>
+    <rect x="80" y="60" width="480" height="200" fill="#0e66a3" rx="8"/>
+    <rect x="220" y="280" width="160" height="40" fill="#0b2540" rx="6"/>
+    <text x="40" y="360" font-family="Inter, Arial" font-size="32" fill="#0b2540">TV Units</text>
+  </g>
+</svg>

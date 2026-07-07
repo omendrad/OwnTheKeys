@@ -1,0 +1,461 @@
+/* Simple responsive styles for Loan & Property Services */
+:root{
+  --accent:#e6b83a; /* warmer gold */
+  --accent-2:#b8860b; /* deeper gold */
+  --muted:#e6d7b4; /* soft muted gold */
+  --bg:#070506; /* near-black background */
+  --card:#0b0b0b; /* card dark */
+  --text:#fff8ea; /* creamy light text */
+  --radius:10px;
+  --container:1100px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+.container{max-width:var(--container);margin:0 auto;padding:24px}
+.site-header{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:var(--text)}
+.site-header .container{display:flex;align-items:center;justify-content:space-between}
+.brand{font-size:1.25rem}
+.nav a{color:rgba(255,255,255,0.95);text-decoration:none;margin-left:18px}
+.hero{padding:48px 0;background:transparent}
+.hero h2{font-size:1.6rem;margin-bottom:8px}
+.muted{color:var(--muted);margin-bottom:12px}
+.services{background:transparent;padding:18px 0}
+.list-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;list-style:none;padding:0}
+  .list-grid li{background:linear-gradient(180deg,var(--card),#111);padding:14px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.6);text-align:center;font-weight:600;color:var(--text)}
+.services-list{list-style:disc;margin-left:20px;margin-top:8px}
+.contact address{font-style:normal;color:var(--muted)}
+.site-footer{padding:18px 0;text-align:center;background:#0f1720;color:#fff}
+
+/* Utility */
+a{color:var(--accent)}
+button{background:var(--accent);color:#fff;border:none;padding:10px 14px;border-radius:6px}
+
+/* Hero layout */
+.hero{background:linear-gradient(180deg,rgba(0,0,0,0.36),transparent);border-bottom:1px solid rgba(255,255,255,0.03)}
+.hero-inner{display:flex;gap:24px;align-items:center}
+.hero-copy{flex:2}
+.hero-features{flex:1;background:var(--card);padding:18px;border-radius:8px;box-shadow:0 6px 18px rgba(16,24,40,0.06);color:var(--text)}
+.hero h2{color:#0b2540;font-size:1.8rem;margin-bottom:8px}
+.lead{color:var(--muted);margin-bottom:16px}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:10px 16px;border-radius:8px;text-decoration:none;background:transparent;border:1px solid transparent;color:var(--accent)}
+.btn-primary{background:var(--accent);color:#000}
+.btn-outline{border:1px solid rgba(230,184,58,0.14);background:transparent;color:var(--accent)}
+.feature-list{list-style:none;padding:0;margin:0}
+.feature-list li{padding:8px 0;border-bottom:1px dashed rgba(255,255,255,0.06);color:var(--muted)}
+
+/* Sections */
+h3{margin-bottom:8px;color:var(--text)}
+.services{padding:28px 0}
+.check-list{list-style:none;padding:0;margin:8px 0}
+.check-list li{position:relative;padding-left:26px;margin-bottom:8px}
+.check-list li:before{content:"✔";position:absolute;left:0;top:0;color:var(--accent)}
+
+.footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;align-items:start}
+
+/* CTA */
+.cta{background:linear-gradient(90deg,#eaf6ff,transparent);padding:24px;border-radius:8px}
+.cta-actions{display:flex;gap:12px;margin-bottom:12px}
+
+/* Responsive tweaks */
+@media (max-width:920px){
+  .hero-inner{flex-direction:column}
+  .hero-features{width:100%}
+  .footer-grid{grid-template-columns:1fr}
+}
+
+@media (max-width:720px){
+  .site-header .container{flex-direction:column;gap:12px;align-items:flex-start}
+  .nav a{margin-left:0;margin-right:12px}
+  .hero h2{font-size:1.25rem}
+}
+
+/* Final overrides: ensure hero CTAs are visually on top and high contrast */
+.hero .hero-ctas .btn{
+  position:relative!important;
+  z-index:9999!important;
+  box-shadow:0 14px 40px rgba(2,10,20,0.16)!important;
+}
+.hero .hero-ctas .btn-primary{box-shadow:0 16px 44px rgba(14,102,163,0.18)!important}
+.hero .hero-ctas .btn-outline,
+.hero .hero-ctas .btn-link{
+  background:rgba(255,255,255,0.02)!important;
+  color:var(--text)!important;
+  border-color:rgba(212,175,55,0.12)!important;
+  box-shadow:0 8px 22px rgba(0,0,0,0.6)!important;
+}
+.hero .hero-ctas .btn-link{text-decoration:none!important}
+
+/* Ensure hero title and lead remain darker than the image */
+.hero h2{color:#031722!important}
+.hero .lead{color:#25323a!important}
+
+/* Small tweak: provide padding so CTAs don't overlap the image on narrow wide viewports */
+.hero-copy{padding-right:18px}
+
+
+/* Ensure CTAs sit clearly above the hero background image and remain legible */
+.hero-ctas .btn{
+  position:relative;
+  z-index:20;
+  box-shadow:0 10px 30px rgba(2,10,20,0.12);
+}
+
+/* Give outlined and link CTAs subtle transparent style so gold accents show */
+.btn-outline{
+  background:transparent;
+  color:var(--accent);
+  border-color:rgba(230,184,58,0.12);
+}
+.btn-link{
+  background:transparent;
+  color:var(--accent);
+  border-radius:10px;
+  padding:12px 14px;
+  text-decoration:none;
+}
+
+/* Slightly darker hero text for improved readability */
+.hero h2{color:#031722}
+.lead{color:#25323a}
+
+/* Tighten vertical spacing for headings site-wide */
+h1, h2, h3, h4 {
+  margin-top:0.35rem;
+  margin-bottom:0.6rem;
+  line-height:1.15;
+}
+
+/* Specific tighter hero heading spacing */
+.hero h2{margin-top:0;margin-bottom:8px}
+
+/* Reduce vertical padding between sections to keep headings closer */
+.services{padding:18px 0}
+
+/* Strong final override to ensure hero background image displays despite duplicate rules earlier */
+.hero{
+  background-image:linear-gradient(rgba(0,0,0,0.56),rgba(0,0,0,0.56)), url('assets/images/home.png') !important;
+  background-repeat:no-repeat !important;
+  background-position:right center !important;
+  background-size:contain !important;
+  min-height:480px !important;
+}
+
+@media (max-width:980px){
+  .hero{background-image:none !important;min-height:auto !important}
+}
+
+/* Final override: ensure hero background image is applied (prevents earlier duplicate rules hiding it) */
+.hero{
+  background-image:linear-gradient(rgba(0,0,0,0.56),rgba(0,0,0,0.56)), url('assets/images/home.png');
+  background-repeat:no-repeat;
+  background-position:right center;
+  background-size:contain;
+  min-height:480px;
+}
+
+@media (max-width:980px){
+  .hero{background-image:none;min-height:auto}
+}
+
+/* Polished styles for Loan & Property Services */
+:root{
+  --accent:#d4af37;
+  --accent-2:#b78e10;
+  --muted:#bfb59a;
+  --bg:#080707;
+  --card:#0f0f0f;
+  --radius:12px;
+  --container:1100px;
+  --max-content-width:980px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+.container{max-width:var(--container);margin:0 auto;padding:28px}
+.site-header{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;padding:6px 0;position:sticky;top:0;z-index:1100;box-shadow:0 2px 8px rgba(2,10,20,0.08)}
+.site-header .container{display:flex;align-items:center;justify-content:space-between}
+.brand{font-size:1.0rem;font-weight:700;color:#fff;text-decoration:none;display:flex;flex-direction:row;align-items:center;text-align:left;gap:6px}
+.brand-logo{width:52px;height:52px;padding:4px;border-radius:50%;background:#000;object-fit:contain;object-position:center center;display:block;cursor:pointer}
+.brand-text{vertical-align:middle;font-size:1rem;font-weight:700;color:#fff;margin:0}
+.nav a{color:rgba(255,255,255,0.95);text-decoration:none;margin-left:12px;padding:6px 8px;border-radius:6px;transition:background .18s,opacity .18s}
+.nav a:hover{background:rgba(255,255,255,0.08);opacity:0.95}
+
+/* Hero */
+.hero{padding:56px 0 40px;border-bottom:1px solid rgba(11,37,64,0.03);position:relative}
+/* Decorative background image with subtle white overlay to keep text readable */
+/* lowered overlay opacity so the image remains visible while text stays legible */
+.hero{background-image:linear-gradient(rgba(0,0,0,0.64),rgba(0,0,0,0.64)), url('assets/images/home.png');background-repeat:no-repeat;background-position:right center;background-size:contain;min-height:480px}
+.hero-inner{display:flex;gap:28px;align-items:center;max-width:var(--max-content-width);margin:0 auto;padding-right:20px;position:relative;z-index:2}
+.hero-copy{flex:1;max-width:680px}
+.hero-features{width:340px;background:var(--card);padding:22px;border-radius:18px;box-shadow:0 18px 40px rgba(11,37,64,0.08);border:1px solid rgba(10,32,50,0.03)}
+.hero h2{color:#031722;font-size:2.4rem;line-height:1.08;margin-bottom:14px;font-weight:800;text-shadow:0 6px 18px rgba(2,10,20,0.10)}
+.lead{color:#324149;font-size:1.02rem;margin-bottom:18px;font-weight:600}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:10px 18px;border-radius:10px;text-decoration:none;background:transparent;border:1px solid transparent;color:var(--accent);font-weight:600;transition:transform .12s,box-shadow .12s,opacity .12s}
+.btn-lg{padding:14px 22px;border-radius:12px;font-size:1.02rem}
+.btn-primary{background:var(--accent);color:#000;box-shadow:0 12px 30px rgba(183,142,16,0.14)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 20px 40px rgba(183,142,16,0.16)}
+.btn-outline{border:1px solid var(--accent);background:transparent;color:var(--accent)}
+.btn-outline:hover{background:rgba(14,102,163,0.04)}
+.btn-link{background:transparent;border:none;color:var(--accent);text-decoration:underline;padding:10px 6px}
+.btn:active{transform:translateY(1px)}
+.feature-list{list-style:none;padding:0;margin:0}
+.feature-list li{padding:12px 0;border-bottom:1px dashed rgba(255,255,255,0.06);color:var(--muted)}
+.feature-list li:last-child{border-bottom:0;padding-bottom:0}
+
+.hero-features h4{margin:0 0 8px 0;color:var(--accent)}
+.hero-features{position:relative}
+.hero-features:before{content:"";position:absolute;left:18px;right:18px;top:12px;height:6px;border-radius:6px;background:linear-gradient(90deg,var(--accent),var(--accent-2));opacity:0.06}
+
+/* Sections */
+main{padding-bottom:48px}
+.services{padding:36px 0}
+.h3_override{display:none}
+.services:nth-child(even){background:transparent}
+.list-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;list-style:none;padding:0}
+.list-grid li{background:linear-gradient(180deg,#fff,#fbfcff);padding:14px;border-radius:12px;box-shadow:0 6px 18px rgba(11,37,64,0.04);text-align:center;font-weight:600}
+.services-list{list-style:disc;margin-left:20px;margin-top:8px}
+.check-list{list-style:none;padding:0;margin:8px 0}
+.check-list li{position:relative;padding-left:30px;margin-bottom:10px;color:var(--muted)}
+.check-list li:before{content:"✔";position:absolute;left:0;top:0;color:var(--accent)}
+
+.contact address{font-style:normal;color:var(--muted)}
+
+.footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;align-items:start}
+.site-footer{padding:28px 0;text-align:left;background:#050505;color:var(--muted)}
+.site-footer a{color:var(--text);text-decoration:none}
+
+/* CTA */
+.cta{background:linear-gradient(90deg,#eaf6ff,transparent);padding:24px;border-radius:12px}
+.cta-actions{display:flex;gap:12px;margin-bottom:12px}
+
+/* Contact CTA: improve contrast on dark theme */
+#contact.cta{
+  background:linear-gradient(90deg, rgba(4,8,12,0.6), rgba(6,10,14,0.45));
+  padding:28px;border-radius:14px;border:1px solid rgba(255,255,255,0.03);
+}
+#contact.cta h3{color:var(--text);font-size:1.8rem;margin-bottom:6px}
+#contact.cta p{color:var(--muted);font-size:1.05rem;margin-bottom:18px}
+#contact.cta .cta-actions .btn-outline{background:transparent;color:var(--accent);border:1px solid rgba(212,175,55,0.18);box-shadow:none}
+#contact.cta .cta-actions .btn-primary{background:var(--accent);color:#000}
+#contact.cta address{color:var(--muted)}
+#contact.cta address a{color:var(--accent);text-decoration:underline}
+
+/* Small helpers */
+.muted{color:var(--muted);margin-bottom:12px}
+
+/* Responsive */
+@media (max-width:980px){
+  .hero-inner{flex-direction:column;align-items:stretch}
+  .hero-features{width:100%}
+  .container{padding:20px}
+  .hero{background-image:none;min-height:auto}
+}
+/* Banks section polish */
+#loans-banks{padding-top:22px;padding-bottom:28px}
+#loans-banks .muted{margin-bottom:18px;color:var(--muted)}
+/* Make bank items look like pills and align nicely */
+#loans-banks .list-grid{display:flex;flex-wrap:wrap;gap:14px;align-items:center;padding:0;margin:0 0 18px 0}
+#loans-banks .list-grid li{background:linear-gradient(180deg,var(--card),#111);padding:12px 18px;border-radius:14px;box-shadow:0 8px 20px rgba(0,0,0,0.6);min-width:180px;flex:0 1 auto;font-size:1rem;text-align:center;display:inline-flex;align-items:center;gap:12px;color:var(--text)}
+#loans-banks .bank-icon{display:inline-flex;align-items:center;justify-content:center}
+#loans-banks .bank-icon svg{width:32px;height:32px;display:block}
+#loans-banks .bank-name{display:inline-block}
+
+/* bank logo image + fallback initials */
+#loans-banks .bank-logo{width:36px;height:36px;border-radius:8px;object-fit:cover;display:inline-block}
+#loans-banks .bank-initials{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;background:linear-gradient(180deg,var(--accent),var(--accent-2));color:#000;font-weight:700;font-size:0.9rem}
+#loans-banks .bank-name{margin-left:8px}
+
+/* Loan services: two-column list with clear spacing and custom bullets */
+#loans-banks .services-list{columns:2;column-gap:40px;padding:0;margin:12px 0 20px 0;list-style:none}
+#loans-banks .services-list li{position:relative;padding-left:34px;margin-bottom:12px;break-inside:avoid}
+#loans-banks .services-list li:before{content:"\2713";position:absolute;left:0;top:0;background:transparent;color:var(--accent);font-weight:700;width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;border-radius:6px}
+
+/* Why choose list alignment - larger checks */
+#loans-banks .check-list li{padding-left:40px;font-size:1.02rem}
+#loans-banks .check-list li:before{content:"\2713";position:absolute;left:0;top:2px;background:transparent;color:var(--accent);width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center;border-radius:6px;font-weight:700}
+
+@media (max-width:900px){
+  #loans-banks .services-list{columns:1}
+  #loans-banks .list-grid li{min-width:140px;padding:12px 18px}
+}
+
+/* Decorative background for the "Home Loans" section
+   Place your image at: assets/images/loans-bg.png (or change the url below)
+   The light white overlay keeps text readable over the image. */
+#loans-banks{
+  position:relative;
+  background-image:linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('assets/images/img2.jpg');
+  background-repeat:no-repeat;
+  background-position:right center;
+  background-size:420px;
+  padding-top:28px; /* ensure spacing above */
+  padding-bottom:28px;
+}
+
+@media (max-width:980px){
+  /* remove decorative background on smaller screens to avoid layout issues */
+  #loans-banks{background-image:none;background-size:auto}
+}
+
+/* Strong override: make the loans section image cover the whole section and be more visible */
+#loans-banks{
+  background-image:linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('assets/images/img2.jpg') !important;
+  background-repeat:no-repeat !important;
+  background-position:right center !important;
+  background-size:cover !important;
+  min-height:520px !important;
+  padding-top:40px !important;
+  padding-bottom:40px !important;
+}
+
+@media (max-width:980px){
+  #loans-banks{background-image:none !important;min-height:auto !important}
+}
+
+/* Registration section full background image (place file at assets/images/img3.png) */
+#registration{
+  position:relative;
+  background-image:linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.50)), url('assets/images/img3.png') !important;
+  background-repeat:no-repeat !important;
+  background-position:center center !important;
+  background-size:cover !important;
+  min-height:560px !important;
+  padding:40px 28px !important;
+}
+
+@media (max-width:980px){
+  /* hide decorative background on small screens for readability */
+  #registration{background-image:none !important;min-height:auto !important}
+}
+
+/* Remove the small decorative blue badge before interior service items */
+#interior .services-list li:before{
+  display:none !important;
+  content:none !important;
+}
+
+/* NBFCs: use same pill style as banks but slightly larger */
+#loans-nbfcs .list-grid{display:flex;flex-wrap:wrap;gap:14px;align-items:center;padding:0;margin:0 0 18px 0}
+#loans-nbfcs .list-grid li{background:linear-gradient(180deg,var(--card),#111);padding:14px 20px;border-radius:14px;box-shadow:0 8px 20px rgba(0,0,0,0.6);min-width:220px;flex:0 1 auto;font-size:1rem;text-align:center;display:inline-flex;align-items:center;gap:14px;color:var(--text)}
+#loans-nbfcs .bank-logo{width:38px;height:38px;border-radius:8px;object-fit:cover;display:inline-block}
+#loans-nbfcs .bank-initials{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:8px;background:linear-gradient(180deg,var(--accent),var(--accent-2));color:#000;font-weight:700;font-size:0.95rem}
+#loans-nbfcs .bank-name{margin-left:8px}
+#loans-nbfcs .check-list li:before{content:"\2713";position:absolute;left:0;top:2px;background:transparent;color:var(--accent);width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center;border-radius:6px;font-weight:700}
+
+@media (max-width:900px){
+  #loans-nbfcs .list-grid li{min-width:160px;padding:12px 16px}
+}
+
+/* Registration section styles */
+#registration{background:linear-gradient(180deg,var(--card),#0d0d0d);padding:28px;border-radius:14px;box-shadow:0 12px 30px rgba(0,0,0,0.6);margin:18px 0;color:var(--text)}
+#registration .muted{font-size:1.04rem;color:var(--muted);margin-bottom:18px}
+#registration .services-list{list-style:none;padding:0;margin:6px 0 0 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+#registration .services-list li{background:linear-gradient(180deg,var(--card),#0d0d0d);padding:14px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.6);display:flex;gap:12px;align-items:flex-start;color:var(--text)}
+#registration .services-list li .reg-icon{flex:0 0 36px;display:flex;align-items:flex-start;justify-content:flex-start}
+#registration .services-list li .reg-icon img{width:28px;height:28px;display:block}
+#registration .services-list li strong{display:block;font-weight:700;color:var(--text);margin-bottom:6px}
+#registration .services-list li strong + span{color:var(--muted)}
+#registration .services-list li p{margin:0;color:var(--muted)}
+
+/* Make long paragraphs inside registration maintain readable width */
+#registration p.muted{max-width:980px}
+
+@media (max-width:880px){
+  #registration .services-list{grid-template-columns:1fr}
+}
+
+/* Modal styles */
+.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:1200}
+.modal.open{display:flex}
+.modal-overlay{position:absolute;inset:0;background:rgba(4,12,20,0.45)}
+.modal-dialog{position:relative;background:var(--card);border-radius:12px;max-width:720px;width:94%;padding:22px 24px;box-shadow:0 30px 60px rgba(0,0,0,0.6);transform:translateY(8px);opacity:0;transition:all .18s ease;color:var(--text)}
+.modal.open .modal-dialog{transform:none;opacity:1}
+.modal-close{position:absolute;right:12px;top:8px;border:none;background:transparent;font-size:24px;line-height:1;color:var(--muted);cursor:pointer}
+.modal-body{margin-top:12px;color:var(--text);line-height:1.6}
+.modal h3{margin:0;font-size:1.28rem;color:var(--text)}
+
+@media (max-width:520px){
+  .modal-dialog{padding:18px}
+  .modal h3{font-size:1.05rem}
+}
+
+/* Interior section polish */
+#interior{background:linear-gradient(180deg,var(--card),#0d0d0d);padding:28px;border-radius:14px;box-shadow:0 12px 30px rgba(0,0,0,0.6);margin:18px 0;color:var(--text)}
+#interior .muted{font-size:1.04rem;color:var(--muted);margin-bottom:18px}
+#interior .services-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;list-style:none;padding:0;margin:8px 0}
+#interior .services-list li{background:linear-gradient(180deg,var(--card),#0d0d0d);padding:16px;border-radius:12px;box-shadow:0 8px 18px rgba(0,0,0,0.6);display:flex;align-items:flex-start;gap:14px;color:var(--text)}
+#interior .services-list li:before{content:'';flex:0 0 44px;height:44px;border-radius:8px;background:linear-gradient(180deg,rgba(212,175,55,0.12),rgba(183,142,16,0.06));display:inline-block}
+#interior .services-list li strong{display:block;font-weight:700;color:var(--text);margin-bottom:6px}
+#interior .services-list li p{margin:0;color:var(--muted)}
+
+/* Use small inline SVG as background for the left badge */
+#interior .services-list li:before{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%230e66a3' d='M21 7H3v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7zM8 3h8v2H8V3z'/></svg>");background-repeat:no-repeat;background-position:center;background-size:60%}
+
+#interior .check-list{margin-top:12px;list-style:none;padding:0}
+#interior .check-list li{position:relative;padding-left:38px;margin-bottom:12px}
+#interior .check-list li:before{content:'\2713';position:absolute;left:0;top:0;background:transparent;color:var(--accent);width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center;border-radius:6px;font-weight:700}
+
+@media (max-width:920px){
+  #interior .services-list{grid-template-columns:1fr}
+}
+
+/* Interior tiles */
+.interior-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;padding:0;list-style:none}
+.interior-tile{background:linear-gradient(180deg,var(--card),#0d0d0d);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;box-shadow:0 8px 20px rgba(0,0,0,0.6);cursor:pointer;transition:transform .12s,box-shadow .12s}
+.interior-tile:focus{outline:2px solid rgba(212,175,55,0.18);outline-offset:3px}
+.interior-tile:hover{transform:translateY(-4px);box-shadow:0 18px 30px rgba(0,0,0,0.6)}
+.tile-thumb{width:84px;height:64px;flex:0 0 84px;border-radius:8px;overflow:hidden;background:transparent;display:flex;align-items:center;justify-content:center}
+.tile-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.tile-title{font-weight:600;color:var(--text)}
+
+@media (max-width:980px){
+  .interior-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:640px){
+  .interior-tiles{grid-template-columns:1fr}
+  .tile-thumb{width:72px;height:56px}
+}
+
+/* Image modal for interior */
+.image-modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:1400}
+.image-modal.open{display:flex}
+.image-modal .overlay{position:absolute;inset:0;background:rgba(4,12,20,0.55)}
+.image-modal .dialog{position:relative;background:transparent;border-radius:10px;max-width:1000px;width:96%;padding:12px;display:flex;flex-direction:column;align-items:center;max-height:calc(100vh - 80px);overflow:auto}
+.image-modal img{max-width:100%;height:auto;max-height:calc(100vh - 180px);border-radius:10px;box-shadow:0 30px 60px rgba(2,10,20,0.3);object-fit:contain}
+.image-modal .caption{margin-top:12px;background:var(--card);padding:10px 14px;border-radius:8px;color:var(--text);font-weight:600}
+.image-modal .close-btn{position:absolute;right:8px;top:8px;background:rgba(255,255,255,0.04);border:none;padding:6px 10px;border-radius:8px;font-size:18px;cursor:pointer;color:var(--text)}
+.image-modal .back-btn{position:absolute;left:8px;top:8px;background:rgba(255,255,255,0.04);border:none;padding:6px 10px;border-radius:8px;font-size:15px;cursor:pointer;color:var(--text)}
+.image-modal .back-btn:hover{background:rgba(255,255,255,0.06);box-shadow:0 6px 18px rgba(0,0,0,0.6)}
+
+/* About section polish */
+#about{
+  background:linear-gradient(180deg,var(--card), #0d0d0d);
+  padding:36px 28px;border-radius:14px;box-shadow:0 12px 30px rgba(0,0,0,0.6);margin-top:10px;margin-bottom:10px;
+}
+#about .muted{font-size:1.06rem;margin-bottom:18px}
+#about h1{color:var(--accent);text-shadow:0 6px 18px rgba(0,0,0,0.6);}
+#about .check-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start}
+#about .check-list li{padding-left:36px;font-size:1.06rem;margin-bottom:14px;color:var(--muted)}
+#about .check-list li:before{content:"\2713";position:absolute;left:0;top:2px;background:linear-gradient(180deg,var(--accent),var(--accent-2));color:#000;width:26px;height:26px;display:inline-flex;align-items:center;justify-content:center;border-radius:6px;font-weight:700;font-size:14px;box-shadow:0 6px 18px rgba(183,142,16,0.08)}
+#about p{max-width:900px}
+
+@media (max-width:860px){
+  #about .check-list{grid-template-columns:1fr}
+}
+@media (max-width:720px){
+  .site-header .container{flex-direction:column;gap:12px;align-items:flex-start}
+  .nav a{margin-left:0;margin-right:8px}
+  .hero h2{font-size:1.35rem}
+  .footer-grid{grid-template-columns:1fr}
+}
+
+/* Contrast fixes: ensure hero headline and lead are readable on dark overlays */
+.hero h2{
+  color:var(--text) !important;
+  text-shadow:0 6px 18px rgba(0,0,0,0.6);
+}
+.hero .lead{
+  color:var(--muted) !important;
+}
+
